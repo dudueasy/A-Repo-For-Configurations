@@ -99,13 +99,24 @@ alias django_run='python manage.py runserver 127.0.0.1:8080'
 # alias for neovim configuration file
 alias nvim_config='nvim ~/.config/nvim/init.vim'
 
-# alias hint while login
-echo "You have following alias set-up: 
+# alias hint for login
 
+
+alias_hint="You have following alias set-up: 
 alias mysql_run='mysql -u root -p'
 alias django_run='python manage.py runserver 127.0.0.1:8080'
 alias nvim_config='nvim ~/.config/nvim/init.vim'
 ";
+echo $alias_hint 
+
+
+custom_function_hint="You have following customed function:
+tnew => tmux new -s
+ta => tmux attach -t
+td => tmux detach
+tks => tmux kill-session -t
+";
+echo $custom_function_hint
 
 
 # change to ustc homebrew mirror
@@ -128,3 +139,47 @@ export NVM_DIR="$HOME/.nvm"
 PATH="/usr/local/Cellar/mongodb/3.6.2/bin:$PATH"
 export PATH
 export PATH="/usr/local/sbin:$PATH"
+
+# customized function
+## example: 
+myfunction(){
+    echo "$1"
+}
+export myfunction
+
+## tmux functions
+
+### tmux new -s
+tnew(){
+    if [ ! -z "$1" ]
+        then
+            tmux new -s "$1"
+    else
+        tmux new
+        echo "session name not set, default value will be used."
+    fi
+}
+export tnew
+
+### tmux attach -t
+ta(){
+    tmux attach -t "$1"
+}
+export ta
+
+### tmux detach
+td(){
+    tmux detach
+}
+export td
+
+### tmux kill-session -t
+tks(){
+    if [ ! -z "$1" ]
+    then
+        tmux kill-session -t "$1"
+    else
+        tmux kill-session
+    fi
+}
+export tks
