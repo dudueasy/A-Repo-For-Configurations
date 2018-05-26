@@ -111,6 +111,7 @@ echo $alias_hint
 
 
 custom_function_hint="You have following customed function:
+tls => tmux ls
 tnew => tmux new -s
 ta => tmux attach -t
 td => tmux detach
@@ -149,6 +150,11 @@ export myfunction
 
 ## tmux functions
 
+### tmux ls
+tls(){
+    tmux ls
+}
+
 ### tmux new -s
 tnew(){
     if [ ! -z "$1" ]
@@ -179,7 +185,7 @@ tks(){
     then
         tmux kill-session -t "$1"
     else
-        tmux kill-session
+        echo "tmux kill-session failed due to tmux session-name not being set"
     fi
 }
 export tks
