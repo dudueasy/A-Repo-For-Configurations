@@ -158,6 +158,4 @@ let g:pymode_python = 'python3'
 " set charset encoding
 set encoding=utf-8
 
-" use deoplete
 
-" test
