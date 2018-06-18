@@ -1,9 +1,12 @@
-" Specify a directory for plugins
+"jiangmiao/auto-pairs Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
 " Plugins
+
+" auto-pair plugin
+Plug 'jiangmiao/auto-pairs' 
 
 " word surround plugin
 Plug 'tpope/vim-surround'
@@ -11,12 +14,16 @@ Plug 'tpope/vim-surround'
 " file navigation plugin
 Plug 'scrooloose/nerdtree'
 
-" a vim status-bar plygin
+" a vim status-bar plugin
 Plug 'vim-airline/vim-airline'
 
 Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_theme='sol'
+
+" # vim obsession 
+Plug 'tpope/vim-obsession'
+
 
 " # syntax checker plugin
 Plug 'neomake/neomake'
@@ -25,14 +32,17 @@ Plug 'neomake/neomake'
 " ### more maker options please check: https://github.com/neomake/neomake/wiki/Makers
 
 let g:neomake_javascript_enabled_makers = ['jshint']
-let g:neomake_javascript_enabled_makers = ['jsxhint']
-
-
 
 
 
 " #tab completion plugin 
 Plug 'ervandew/supertab'
+
+" identLine plugin
+Plug 'Yggdroot/indentLine'
+
+
+
 
 " #========== deoplete and it's completion plugin settings starts here ==========#
 if has('nvim')
@@ -142,13 +152,20 @@ call neomake#configure#automake('nrwi', 500)
 let g:neomake_open_list=2
 
 
-" vim settings
+" neovim settings
 syntax on
 set hlsearch
 set ts=4
 set sw=4
 set expandtab
 set smartindent
+set number
+set cursorline
+filetype on
+set clipboard+=unnamedplus
+
+
+
 
 " python3 support
 let g:pymode_python = 'python3'
@@ -158,4 +175,8 @@ let g:pymode_python = 'python3'
 " set charset encoding
 set encoding=utf-8
 
+" test
 
+" use deoplete
+
+" test
