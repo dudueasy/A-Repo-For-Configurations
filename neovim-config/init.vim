@@ -181,6 +181,13 @@ let g:pymode_python = 'python3'
 set encoding=utf-8
 
 " keybinding 
-"" Press F5 to open NERDTree
-nnoremap <silent> <F5> :NERDTree<CR>
-nnoremap <silient> <F6> :so ~/.config/nvim/init.vim<CR>
+"" Press Ctrl+n to open NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+"" Press F5 to open nvim configuration file, F6 to reload it 
+nnoremap <silent> <F5> :vnew ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <F6> :so ~/.config/nvim/init.vim<CR>
+
+
+
+
