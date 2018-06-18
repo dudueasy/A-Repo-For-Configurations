@@ -4,6 +4,8 @@
 call plug#begin('~/.vim/plugged')
 
 " Plugins
+" emmet-vim
+Plug 'mattn/emmet-vim'
 
 " auto-pair plugin
 Plug 'jiangmiao/auto-pairs' 
@@ -24,8 +26,11 @@ let g:airline_theme='sol'
 " # vim obsession 
 Plug 'tpope/vim-obsession'
 
+" # fzf : a fuzzy finder
+Plug '/usr/local/opt/fzf'
 
-" # syntax checker plugin
+
+" # syntax neomake: a checker plugin
 Plug 'neomake/neomake'
 
 " ## enabled makers for neomake
@@ -175,8 +180,7 @@ let g:pymode_python = 'python3'
 " set charset encoding
 set encoding=utf-8
 
-" test
-
-" use deoplete
-
-" test
+" keybinding 
+"" Press F5 to open NERDTree
+nnoremap <silent> <F5> :NERDTree<CR>
+nnoremap <silient> <F6> :so ~/.config/nvim/init.vim<CR>
