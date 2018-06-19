@@ -15,6 +15,7 @@ Plug 'tpope/vim-surround'
 
 " file navigation plugin
 Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 
 " a vim status-bar plugin
 Plug 'vim-airline/vim-airline'
@@ -182,12 +183,24 @@ set encoding=utf-8
 
 " keybinding 
 "" Press Ctrl+n to open NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeTabsToggle<CR>
 
 "" Press F5 to open nvim configuration file, F6 to reload it 
 nnoremap <silent> <F5> :vnew ~/.config/nvim/init.vim<CR>
 nnoremap <silent> <F6> :so ~/.config/nvim/init.vim<CR>
 
+"
+nmap <tab> V>
+nmap <s-tab> V<
+vmap <tab> >gv
+vmap <s-tab> <gv
 
+"" Move Line 
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<cr>==gi
+inoremap <a-k> <esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 
