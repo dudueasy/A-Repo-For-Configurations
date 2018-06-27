@@ -3,7 +3,11 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+
 " Plugins
+" You complete me
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+
 " emmet-vim
 Plug 'mattn/emmet-vim'
 
@@ -39,103 +43,19 @@ Plug 'neomake/neomake'
 
 let g:neomake_javascript_enabled_makers = ['jshint']
 
-
+let g:neomake_css_enabled_makers = ['csslint']
 
 " #tab completion plugin 
 Plug 'ervandew/supertab'
 
+
 " identLine plugin
-Plug 'Yggdroot/indentLine'
-
-
-
-
-" #========== deoplete and it's completion plugin settings starts here ==========#
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" #========== deoplete configuration starts here ==========#
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-
-
-" #========== deoplete dependency & configuration ends here ==========#
-
-" dependency
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-
-
-" completion for javascript
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-
-" Use tern_for_vim.
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
-
-
-" ##========== deoplete-ternjs configuration starts here ==========##   
-" Whether to include the types of the completions in the result data. Default: 0
-let g:deoplete#sources#ternjs#types = 1
-
-" Whether to include the distance (in scopes for variables, in prototypes for 
-" properties) between the completions and the origin position in the result 
-" data. Default: 0
-let g:deoplete#sources#ternjs#depths = 1
-
-" Whether to include documentation strings (if found) in the result data.
-" Default: 0
-let g:deoplete#sources#ternjs#docs = 1
-
-" When on, only completions that match the current word at the given point will
-" be returned. Turn this off to get all results, so that you can filter on the 
-" client side. Default: 1
-let g:deoplete#sources#ternjs#filter = 0
-
-" Whether to use a case-insensitive compare between the current word and 
-" potential completions. Default 0
-let g:deoplete#sources#ternjs#case_insensitive = 1
-
-" When completing a property and no completions are found, Tern will use some 
-" heuristics to try and return some properties anyway. Set this to 0 to 
-" turn that off. Default: 1
-let g:deoplete#sources#ternjs#guess = 0
-
-" Determines whether the result set will be sorted. Default: 1
-let g:deoplete#sources#ternjs#sort = 0
-
-" When disabled, only the text before the given position is considered part of 
-" the word. When enabled (the default), the whole variable name that the cursor
-" is on will be included. Default: 1
-let g:deoplete#sources#ternjs#expand_word_forward = 0
-
-" Whether to ignore the properties of Object.prototype unless they have been 
-" spelled out by at least two characters. Default: 1
-let g:deoplete#sources#ternjs#omit_object_prototype = 0
-
-" Whether to include JavaScript keywords when completing something that is not 
-" a property. Default: 0
-let g:deoplete#sources#ternjs#include_keywords = 1
-
-" If completions should be returned when inside a literal. Default: 1
-let g:deoplete#sources#ternjs#in_literal = 0
-
-" ##========== deoplete-ternjs configuration ends here ==========##   
-
-
-" completion for python
-Plug 'zchee/deoplete-jedi'
-
-
-" ##========== deoplete and it's completion plugin settings ends here ==========##
+ Plug 'Yggdroot/indentLine'
 
 
 " Initialize plugin system
+
+
 call plug#end()
 
 " ## neomake configuration
@@ -159,18 +79,24 @@ let g:neomake_open_list=2
 
 
 " neovim settings
+"" set ignorecase
+set ic 
+
 syntax on
 set hlsearch
-set ts=4
-set sw=4
-set expandtab
 set smartindent
 set number
 set cursorline
 filetype on
 set clipboard+=unnamedplus
 
-
+" neovim setting for tab & space
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set shiftwidth=2    " number of spaces to use for autoindent
+set expandtab       " tabs are space
+set autoindent
+set copyindent      " copy indent from the previous line
 
 
 " python3 support
@@ -181,7 +107,7 @@ let g:pymode_python = 'python3'
 " set charset encoding
 set encoding=utf-8
 
-" keybinding 
+" ========== keybinding starts here ========== 
 "" Press Ctrl+n to open NERDTree
 map <C-n> :NERDTreeTabsToggle<CR>
 
@@ -189,13 +115,13 @@ map <C-n> :NERDTreeTabsToggle<CR>
 nnoremap <silent> <F5> :vnew ~/.config/nvim/init.vim<CR>
 nnoremap <silent> <F6> :so ~/.config/nvim/init.vim<CR>
 
-"
-nmap <tab> V>
-nmap <s-tab> V<
-vmap <tab> >gv
-vmap <s-tab> <gv
+" Press Tab/Shift+Tab to change line indentation (conflicted)
+" nmap <tab> V>
+" nmap <s-tab> V<
+" vmap <tab> >gv
+" vmap <s-tab> <gv
 
-"" Move Line 
+"" Use Alt+j/k to move line 
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<cr>==gi
@@ -203,4 +129,11 @@ inoremap <a-k> <esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
+" Press Ctrl+i to quit insert mode (conflicted with auto-completion shortkey)
+" imap <C-I> <Esc>
+" disable tab key
+" map <tab> <Nop>
+" map <s-tab> <Nop>
 
+
+" ========== keybinding ends here ========== 
