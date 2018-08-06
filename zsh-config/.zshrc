@@ -1,9 +1,17 @@
+# current $PATH
+# /Users/apolodu/.nvm/versions/node/v8.9.1/bin:/usr/local/sbin:/usr/local/Cellar/mongodb/3.6.2/bin:/Users/apolodu/anaconda3/bin:/Users/apolodu/anaconda2/bin:/Users/apolodu/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin
+
 # If you come from bash you might have to change your $PATH.
 PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH=$PATH:/usr/local/mysql/bin
-export PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/apolodu/.oh-my-zsh
+
+
+PATH="/usr/local/Cellar/mongodb/3.6.2/bin:$PATH"
+PATH="/usr/local/sbin:$PATH"
+export PATH
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -93,43 +101,56 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias mysql_run='mysql -u root -p'
-alias django_run='python manage.py runserver 127.0.0.1:8080'
+alias godoc="cd ~/Documents"
+alias mysql_run="mysql -u root -p"
+alias django_run="python manage.py runserver 127.0.0.1:8080"
 
 # alias for neovim configuration file
-alias nvim_config='nvim ~/.config/nvim/init.vim'
+alias nvim_config="nvim ~/.config/nvim/init.vim"
 
 # alias hint for login
 
 
-alias_hint="You have following alias set-up: 
-alias mysql_run='mysql -u root -p'
-alias django_run='python manage.py runserver 127.0.0.1:8080'
-alias nvim_config='nvim ~/.config/nvim/init.vim'
-";
+alias_hint='Welcome back Apolo, you have following shortcuts set-up: 
+
+alias:
+    godoc="cd ~/Documents"
+    mysql_run="mysql -u root -p"
+    django_run="python manage.py runserver 127.0.0.1:8080"
+    nvim_config="nvim ~/.config/nvim/init.vim"
+    px="proxychains4"
+';
 echo $alias_hint 
 
 
-custom_function_hint="You have following customed function:
-tls => tmux ls
-tnew => tmux new -s
-ta => tmux attach -t
-td => tmux detach
-tks => tmux kill-session -t
+custom_function_hint="git:
+    gl => git log --oneline
+    gs => git status 
+
+tmux:
+    tls => tmux ls
+    tnew => tmux new -s
+    ta => tmux attach -t
+    td => tmux detach
+    tks => tmux kill-session -t
 ";
 echo $custom_function_hint
 
+# alias for git
+alias gl="git log --oneline"
+alias gs="git status"
 
-# change to ustc homebrew mirror
+
+# alias for proxy
+alias proxy='export ALL_PROXY=socks5://127.0.0.1:1086'
+alias unproxy='unset ALL_PROXY'
+# only work if proxychains is installed
+alias px='proxychains4'
+
+
+# change to USTC homebrew mirror
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
-
-
-# added by Anaconda2 5.0.1 installer
-PATH="/Users/apolodu/anaconda2/bin:$PATH"
-
-# added by Anaconda3 5.0.1 installer
-PATH="/Users/apolodu/anaconda3/bin:$PATH"
 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
@@ -137,9 +158,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-PATH="/usr/local/Cellar/mongodb/3.6.2/bin:$PATH"
-export PATH
-export PATH="/usr/local/sbin:$PATH"
 
 # customized function
 ## example: 
@@ -189,3 +207,9 @@ tks(){
     fi
 }
 export tks
+
+## git functions
+# to be continued
+
+
+
