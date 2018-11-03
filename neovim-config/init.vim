@@ -34,6 +34,7 @@ let g:NERDToggleCheckAllLines = 1
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 
 " emmet-vim
+" shortcut: ctrl+y ,
 Plug 'mattn/emmet-vim'
 
 " auto-pair plugin
@@ -66,7 +67,7 @@ Plug 'neomake/neomake'
 " ## enabled makers for neomake
 " ### more maker options please check: https://github.com/neomake/neomake/wiki/Makers
 
-let g:neomake_javascript_enabled_makers = ['jshint']
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 let g:neomake_css_enabled_makers = ['csslint']
 
@@ -75,7 +76,7 @@ Plug 'ervandew/supertab'
 
 
 " identLine plugin
- Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 
 " Initialize plugin system
