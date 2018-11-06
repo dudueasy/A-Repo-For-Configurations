@@ -1,11 +1,20 @@
 # current $PATH
+# /Users/apolodu/.nvm/versions/node/v8.9.1/bin:/usr/local/sbin:/usr/local/Cellar/mongodb/3.6.2/bin:/Users/apolodu/anaconda3/bin:/Users/apolodu/anaconda2/bin:/Users/apolodu/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin
 
 # If you come from bash you might have to change your $PATH.
-PATH=usr/bin:/usr/local/bin:$PATH
+PATH=$HOME/bin:/usr/local/bin:$PATH
+PATH=$PATH:/usr/local/mysql/bin
 
 # Path to your oh-my-zsh installation.
+# for mac
+# export ZSH=/Users/apolodu/.oh-my-zsh
+# for ubuntu
 export ZSH=/home/apolo/.oh-my-zsh
 
+
+PATH="/usr/local/Cellar/mongodb/3.6.2/bin:$PATH"
+PATH="/usr/local/sbin:$PATH"
+export PATH
 
 # for python virtualenvwrapper
 exportWORKON_HOME='~/.virtualenvs'    
