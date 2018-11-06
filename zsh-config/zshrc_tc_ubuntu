@@ -1,20 +1,11 @@
 # current $PATH
-# /Users/apolodu/.nvm/versions/node/v8.9.1/bin:/usr/local/sbin:/usr/local/Cellar/mongodb/3.6.2/bin:/Users/apolodu/anaconda3/bin:/Users/apolodu/anaconda2/bin:/Users/apolodu/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin
 
 # If you come from bash you might have to change your $PATH.
-PATH=$HOME/bin:/usr/local/bin:$PATH
-PATH=$PATH:/usr/local/mysql/bin
+PATH=usr/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-# for mac
-# export ZSH=/Users/apolodu/.oh-my-zsh
-# for ubuntu
 export ZSH=/home/apolo/.oh-my-zsh
 
-
-PATH="/usr/local/Cellar/mongodb/3.6.2/bin:$PATH"
-PATH="/usr/local/sbin:$PATH"
-export PATH
 
 # for python virtualenvwrapper
 exportWORKON_HOME='~/.virtualenvs'    
@@ -116,6 +107,10 @@ alias django_run="python manage.py runserver 127.0.0.1:8080"
 # alias for neovim configuration file
 alias nvim_config="nvim ~/.config/nvim/init.vim"
 
+# alias for ssserver
+alias ssserver_start="sudo ssserver -c ~/shadowsocks.json -d start"
+alias ssserver_stop="sudo ssserver -d stop"
+
 # alias hint for login
 
 
@@ -126,7 +121,9 @@ godoc="cd ~/Documents"
 mysql_run="mysql -u root -p"
 django_run="python manage.py runserver 127.0.0.1:8080"
 nvim_config="nvim ~/.config/nvim/init.vim"
-px="proxychains4"
+px="proxychains4" 
+alias ssserver_start="sudo ssserver -c ~/shadowsocks.json -d start"
+alias ssserver_stop="sudo ssserver -d stop"
 ';
 echo $alias_hint 
 
