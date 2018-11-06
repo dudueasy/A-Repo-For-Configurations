@@ -30,6 +30,12 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
+" configuration for nerdtree_tabs_on_startup
+" Enable nerdtree_tabs_on_startup
+let g:nerdtree_tabs_open_on_console_startup=1 
+let g:nerdtree_tabs_meaningful_tab_names=1
+let g:nerdtree_tabs_focus_on_files=1
+
 " You complete me
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
 
@@ -104,7 +110,7 @@ call neomake#configure#automake('nrwi', 500)
 let g:neomake_open_list=2
 
 
-" neovim settings
+" ========== neovim setting starts here ========== 
 "" set ignorecase
 set ic 
 
@@ -132,6 +138,8 @@ let g:pymode_python = 'python3'
 
 " set charset encoding
 set encoding=utf-8
+
+" ========== neovim setting ends here ========== 
 
 " ========== keybinding starts here ========== 
 "" Press Ctrl+n to open NERDTree
