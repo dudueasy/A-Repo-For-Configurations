@@ -5,7 +5,8 @@
 PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH=$PATH:/usr/local/mysql/bin
 
-# Path to your oh-my-zsh installation.
+## Path to your oh-my-zsh installation.
+# this is only for MAC
 export ZSH=/Users/apolodu/.oh-my-zsh
 
 
@@ -106,66 +107,68 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias godoc="cd ~/Documents"
+alias godoc="cd ~/Documents/My_projects"
 alias mysql_run="mysql -u root -p"
 alias django_run="python manage.py runserver 127.0.0.1:8080"
 
 # alias for neovim configuration file
 alias nvim_config="nvim ~/.config/nvim/init.vim"
 
-# alias hint for login
-
-
+# alias hint for login 
 alias_hint='Welcome back Apolo, you have following shortcuts set-up: 
 
 alias:
-godoc="cd ~/Documents"
-mysql_run="mysql -u root -p"
-django_run="python manage.py runserver 127.0.0.1:8080"
-nvim_config="nvim ~/.config/nvim/init.vim"
-px="proxychains4"
+  godoc="cd ~/Documents/My_projects"
+  mysql_run="mysql -u root -p"
+  django_run="python manage.py runserver 127.0.0.1:8080"
+  nvim_config="nvim ~/.config/nvim/init.vim"
+  proxy="export ALL_PROXY=socks5://127.0.0.1:1086"
+  unproxy="unset ALL_PROXY"
+  px="proxychains4"
 ';
 echo $alias_hint 
 
 
 custom_function_hint="bash:
-cdls => cd && ls
+  cdls => cd && ls
 git:
-gl => git log --oneline --graph
-gs => git status 
-init_ignore => create a pre-configured .gitignore
+  gl => git log --oneline --graph
+  gs => git status 
+  ga => git add
+  gcm => git commit -m
+  init_ignore => create a pre-configured .gitignore
 
 tmux:
-tls => tmux ls
-tnew => tmux new -s
-ta => tmux attach -t
-td => tmux detach
-tks => tmux kill-session -t
+  tls => tmux ls
+  tnew => tmux new -s
+  ta => tmux attach -t
+  td => tmux detach
+  tks => tmux kill-session -t
+tmux-resurrect is enabled:  
+  save tmux session: use prefix + ctrl + s 
+  restore: use prefix + ctrl + r
 ";
 echo $custom_function_hint
 
 # alias for git
 alias gl="git log --oneline --graph"
 alias gs="git status"
-
+alias ga="git add"
+alias gcm="git commit -m" 
 
 # alias for proxy
 alias proxy='export ALL_PROXY=socks5://127.0.0.1:1086'
 alias unproxy='unset ALL_PROXY'
 # only work if proxychains is installed
-alias px='proxychains4'
+alias px='proxychains4' 
 
-
-# change to USTC homebrew mirror
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-
-
+# use USTC homebrew mirror
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
 # customized function
 ## example: 
@@ -186,8 +189,7 @@ cdls(){
 # copy .gitignore to current path
 init_ignore(){
   cp ~/utils/.gitignore ./
-}
-
+} 
 
 ## tmux functions
 
@@ -195,7 +197,6 @@ init_ignore(){
 tls(){
   tmux ls
 }
-export tls
 
 ### tmux new -s
 tnew(){
@@ -207,19 +208,16 @@ tnew(){
     echo "session name not set, default value will be used."
   fi
 }
-export tnew
 
 ### tmux attach -t
 ta(){
   tmux attach -t "$1"
 }
-export ta
 
 ### tmux detach
 td(){
   tmux detach
 }
-export td
 
 ### tmux kill-session -t
 tks(){
@@ -230,7 +228,6 @@ tks(){
     echo "tmux kill-session failed due to tmux session-name not being set"
   fi
 }
-export tks
 
 ## git functions
 # to be continued
