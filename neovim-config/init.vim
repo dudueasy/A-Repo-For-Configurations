@@ -77,6 +77,8 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 
 let g:neomake_css_enabled_makers = ['csslint']
 
+let g:neomake_typescript_enabled_makers = ['tslint']
+
 " #tab completion plugin 
 Plug 'ervandew/supertab'
 
@@ -84,7 +86,8 @@ Plug 'ervandew/supertab'
 " identLine plugin
 Plug 'Yggdroot/indentLine'
 
-
+" Basic tmux support for Vim
+Plug 'tpope/vim-tbone'
 " Initialize plugin system
 
 
@@ -108,6 +111,9 @@ call neomake#configure#automake('nrwi', 500)
 
 " ### neomake window configuration
 let g:neomake_open_list=2
+
+" maximum neomake list height
+let g:neomake_list_height=5
 
 
 " ========== neovim setting starts here ========== 
@@ -162,6 +168,15 @@ inoremap <A-j> <Esc>:m .+1<cr>==gi
 inoremap <a-k> <esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" use d to replace "_d (yank to black hole register)
+nnoremap _ "_
+vnoremap _ "_
+
+" for inserting vim buffer into tmux buffer
+vnoremap ,y :Tyank<ENTER>
+
+" vnoremap ,c :call NERDComment(0,"toggle")<CR>
 
 " Press Ctrl+i to quit insert mode (conflicted with auto-completion shortkey)
 " imap <C-I> <Esc>

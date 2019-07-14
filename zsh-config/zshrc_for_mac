@@ -121,7 +121,7 @@ alias nvim_config="nvim ~/.config/nvim/init.vim"
 # alias hint for login 
 alias_hint='Welcome back Apolo, you have following shortcuts set-up: 
 
-alias:
+Alias:
 gobook="cd /Users/apolodu/Documents/My_gitbooks"
 godoc="cd ~/Documents/My_projects"
 mysql_run="mysql -u root -p"
@@ -134,9 +134,10 @@ px="proxychains4"
 echo $alias_hint 
 
 
-custom_function_hint='bash:
+custom_function_hint='Bash:
 cdls => cd && ls
-git:
+
+Git:
 gl => git log --oneline --graph
 gs => git status 
 ga => git add
@@ -147,15 +148,15 @@ gsh="git stash"
 init_ignore => create a pre-configured .gitignore
 ignore
 
-tmux:
+Tmux:
 tls => tmux ls
 tnew => tmux new -s
 ta => tmux attach -t
 td => tmux detach
 tks => tmux kill-session -t
-tmux-resurrect is enabled:  
-save tmux session: use prefix + ctrl + s 
-restore: use prefix + ctrl + r
+Tmux-resurrect is enabled with:  
+prefix + ctrl + s to save tmux session
+prefix + ctrl + r to restore tmux session
 ';
 echo $custom_function_hint
 
@@ -199,13 +200,21 @@ cdls(){
 }
 
 # copy .gitignore to current path
-init_ignore(){
-  cp ~/utils/.gitignore ./
+init_ignore(){ 
+  declare -a ignoreList=('.idea/' 'node_modules' 'dist' 'stats.json' '*.log' '.vscode' )
+
+  for i in "${ignoreList[@]}"
+  do
+    echo "$i" >> .gitignore
+    # or do whatever with individual element of the array
+  done
 } 
 
 # add files to .gitignore to current directory
 ignore(){
-  echo "$1" >> .gitignore 
+  foreach i ($@)
+    echo $i >> .gitignore
+  end
 }
 
 
