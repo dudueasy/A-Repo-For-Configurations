@@ -10,7 +10,10 @@ opendiff source_file target_file
 ~~~
 
 * 窗口控制工具 
-Spectacle
+Spectacle 
+  * 键位设置
+  ![shortcuts](spectacle/shortcuts.png)
+
 
 * gif 截屏工具
 LICEcap
