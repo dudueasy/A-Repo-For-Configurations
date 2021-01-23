@@ -6,8 +6,8 @@ PATH=$HOME/bin:/usr/local/bin:$PATH
 PATH=$PATH:/usr/local/mysql/bin
 PATH=$PATH:/Users/apolodu/Packages/apache-maven-3.6.2/apache-maven/src/bin
 
-
-
+# make homebrew/bin in the first place (for apple silicon)
+PATH=/opt/homebrew/bin:$PATH 
 
 ## Path to your oh-my-zsh installation.
 # this is only for MAC
@@ -15,8 +15,11 @@ export ZSH=/Users/apolodu/.oh-my-zsh
 
 export LANG="en_US.UTF-8"
 
-# for z
-. /usr/local/etc/profile.d/z.sh
+# for z (intel)
+# . /usr/local/etc/profile.d/z.sh
+
+# for z (apple silicon)
+. /opt/homebrew/etc/profile.d/z.sh 
 
 PATH="/usr/local/Cellar/mongodb/3.6.2/bin:$PATH"
 PATH="/usr/local/sbin:$PATH"
@@ -117,7 +120,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias reload="source ~/.zshrc"
 alias config="vim ~/.zshrc"
-alias vim="/usr/local/bin/nvim"
+# alias vim="/usr/local/bin/nvim"
 alias grep="grep -i"
 alias gobook="cd /Users/apolodu/Documents/My_gitbooks"
 alias godoc="cd /Users/apolodu/Documents/My_projects"
@@ -147,12 +150,12 @@ godoc="cd ~/Documents/My_projects"
 gojava="cd ~/Users/apolodu/Documents/My_Java_Projects"
 mysql_run="mysql -u root -p"
 django_run="python manage.py runserver 127.0.0.1:8080"
-nvim_config="nvim ~/.config/nvim/init.vim"
+# nvim_config="nvim ~/.config/nvim/init.vim"
 mt='mvn test'
 alias mtu='mvn test && gu';
-proxy="export ALL_PROXY=socks5://127.0.0.1:1086"
+proxy="export ALL_PROXY=socks5://127.0.0.1:1080"
 unproxy="unset ALL_PROXY"
-alias test_proxy="curl cip.cc"
+alias test-proxy="curl cip.cc"
 ';
 echo $alias_hint 
 
@@ -202,13 +205,13 @@ alias gsh="git stash"
 # alias for proxy
 alias proxy='export ALL_PROXY=socks5://127.0.0.1:1080'
 alias unproxy='unset ALL_PROXY'
-alias test_proxy='curl cip.cc'
+alias test-proxy='curl cip.cc'
 # only work if proxychains is installed
 alias px='proxychains4' 
 
 # use USTC homebrew mirror
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles 
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles 
+# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
